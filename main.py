@@ -12,7 +12,7 @@ polygon_api_key = 'FsQxBRrG_bRv_EnkEQvTEHkIToVyu29V'
 
 @app.route('/')
 def index():
-    return app.send_static_file("r3g7h6y9k2.html")
+    return app.send_static_file("index.html")
 
 @app.route('/get_company_profile_data/<symbol>')
 def get_company_profile_data(symbol):
