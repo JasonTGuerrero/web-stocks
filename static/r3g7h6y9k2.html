@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Finnhub Stock Data</title>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
+</head>
+<body>
+<div class="content-wrapper">
+
+    <h2>Stock Search</h2>
+    <div id="search-tool">
+        <button id="searchButton" onclick="searchStock()" class="image-button">
+            <img id="searchImage" src="/static/images/search-solid.svg" alt="Clear" class="search-icon">
+        </button>
+        <input type="text" id="stockSymbolInput" placeholder="Enter Stock Ticker Symbol" class="searchbar">
+        <div id="separatorLine" class="separator-line"></div>
+        <button id="clearButton" onclick="clearSearch()" class="image-button">
+            <img id="clearImage" src="/static/images/times-solid.svg" alt="Clear" class="clear-icon">
+        </button>
+        <p id="alertMessage" class="alert-message">
+            <span class="exclamation-mark">&#x2755;</span> <!-- Exclamation mark symbol -->
+            Please fill out this field.
+        </p>
+    </div>
+    
+    <div id="error-result">
+        <div class="error-message">Error : No record has been found, please enter a valid symbol</div>
+    </div>
+    <div id="search-result" class="result-area">
+        <div id="navbar" class="navbar">
+            <button id="companyTab" class="tabbutton selected-tab" onclick="showTab('company')">Company</button>
+            <button id ="stockSummaryTab" class="tabbutton" onclick="showTab('stockSummary')">Stock Summary</button>
+            <button id="chartsTab" class="tabbutton" onclick="showTab('charts')">Charts</button>
+            <button id="latestNewsTab" class="tabbutton" onclick="showTab('latestNews')">Latest News</button>
+        </div>
+        <div id="company" class="content">
+            <!-- Dynamically generate Company Profile table -->
+        </div>
+        
+        <div id="stockSummary" class="content">
+            <!--  Dynamically generate Stock Summary table -->
+        </div>
+        <div id="charts" class="content">
+            <!-- Highcharts will fill this div -->
+            <div id="charts-region"></div>
+        </div>
+        <div id="latestNews" class="content">
+            <!-- Dynamically generate news stories -->
+        </div>
+    </div>
+</div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
